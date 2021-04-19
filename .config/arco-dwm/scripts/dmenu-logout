@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+restart() {
+	systemctl reboot
+}
+
+# Logout function
+logout() {
+	pkill dwm
+}
+
+# Load dmenu config
+# shellcheck source=/dev/null
+[ -f "$HOME/.dmenurc" ] && . "$HOME/.dmenurc" || DMENU='dmenu -i -c -l 5 -fn 'InputMonoCompressed:light:pixelsize=20' -nb '#121212' -nf '#ffffff' -sb '#ba04d6' -sf '#ffffff' '
+
+# Menu items
+items="restart
+logout
+hibernate
+suspend
+poweroff"
+
+# Open menu
+selection=$(printf '%s' "$items" | $DMENU)
+
+case $selection in
+	restart)
+		restart
+		;;
+	logout)
+		logout
+		;;
+	hibernate)
+		systemctl hibernate
+		;;
+	suspend)
+		systemctl suspend
+		;;
+	halt|poweroff|shutdown)
+		systemctl poweroff
+		;;
+esac
+
+exit
