@@ -56,6 +56,9 @@ func_category Accessories
 
 list=(
 #variety
+alacritty
+termite
+kvantum-qt5
 )
 
 count=0
@@ -72,7 +75,7 @@ func_category Development
 list=(
 #atom
 #meld
-#sublime-text-dev
+sublime-text-dev
 )
 
 count=0

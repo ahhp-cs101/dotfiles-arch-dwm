@@ -38,7 +38,7 @@ func_install() {
     	echo "###############################################################################"
     	echo
     	tput sgr0
-    	sudo pacman -S --noconfirm --needed $1
+    	yay -S --noconfirm --needed $1
     fi
 }
 
@@ -52,10 +52,11 @@ func_category() {
 
 ###############################################################################
 
-func_category Any_software_from_arcolinux_xlarge_repository
+func_category Accessories
 
 list=(
-#gitahead
+picom-jonaburg-git
+dmenu-distrotube-git
 )
 
 count=0
@@ -66,7 +67,6 @@ for name in "${list[@]}" ; do
 done
 
 ###############################################################################
-
 tput setaf 11;
 echo "################################################################"
 echo "Software has been installed"
